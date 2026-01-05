@@ -30,6 +30,12 @@ class Comment(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey('post.id'), nullable=False)
 
+class Follower(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    follower_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    followed_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+
 
 
 def serialize(self):
